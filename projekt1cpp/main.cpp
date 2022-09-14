@@ -1,22 +1,20 @@
-#include "gra.h"
-#include "pole.h"
+#include <SFML/Graphics.hpp>
+
+#include "game.h"
+#include "enemy.h"
 
 int main()
 {
-    srand(time(NULL));
+    std::srand(static_cast<unsigned>(time(NULL)));          //zeby pozbyc sie warningu ten static_cast
 
-    Gra gra;
-    Pole pole;
 
-//pêtla gry
-    while (gra.is_game_running())
+    Game rozgrywka;
+
+    while (rozgrywka.is_game_running())
     {
-    //update gry
-        gra.update();
+        rozgrywka.update();
 
-    //renderowanie gry
-        gra.render();
-
+        rozgrywka.render();
     }
 
     return 0;
